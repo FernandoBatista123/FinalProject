@@ -1,3 +1,5 @@
+import model.Course
+import model.Student
 import utils.PrinterHelper.showMainMenu
 import utils.PrinterHelper.createStudentMenu
 import kotlin.Throws
@@ -78,4 +80,5 @@ object Main {
         val student = createStudentMenu(scanner)
         studentService.subscribeStudent(student)
     }
+
 }

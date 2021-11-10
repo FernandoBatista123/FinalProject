@@ -10,7 +10,7 @@ class CourseService {
     private val courses: MutableMap<String, Course> = HashMap()
     private val enrolledStudents: MutableMap<String, MutableList<Student>> = HashMap()
     fun registerCourse(course: Course) {
-        courses[course.code] = course
+        courses[course.id] = course
     }
 
     fun getCourse(code: String): Course? {
@@ -20,10 +20,10 @@ class CourseService {
     }
 
     fun enrollStudent(courseId: String, student: Student) {
-        if (!enrolledStudents.containsKey(courseId)) {
+        if (enrolledStudents.containsKey(courseId)) {
             enrolledStudents[courseId] = ArrayList()
         }
-        enrolledStudents[courseId]!!.add(student)
+
     }
 
     fun showEnrolledStudents(courseId: String) {
@@ -73,8 +73,7 @@ class CourseService {
         registerCourse(Course("INTRO-WEB-4", "Advanced HTML", 9, moduleWebFundamentals))
         registerCourse(Course("INTRO-WEB-5", "Advanced CSS", 9, moduleWebFundamentals))
         registerCourse(Course("INTRO-WEB-6", "Introduction to Bootstrap Framework", 9, moduleWebFundamentals))
-        registerCourse(
-            Course("INTRO-WEB-7", "Introduction to JavaScript for Web Development", 9, moduleWebFundamentals)
+        registerCourse(Course("INTRO-WEB-7", "Introduction to JavaScript for Web Development", 9, moduleWebFundamentals)
         )
     }
 }
